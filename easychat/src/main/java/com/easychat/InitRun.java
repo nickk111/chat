@@ -7,8 +7,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 @Component("initRun")
@@ -24,12 +25,11 @@ public class InitRun implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        try {
-            dataSource.getConnection();
+        try (Connection connection = dataSource.getConnection()) {
             new Thread(nettyWebSocketStarter).start();
-            logger.error("服务启动成功，可以开始愉快的开发了");
+            logger.info("服务启动成功，可以开始愉快的开发了");
         } catch (SQLException e) {
-            logger.error("数据库配置错误，请检查数据库配置");
+            logger.error("数据库连接失败，请检查连接地址和凭据", e);
         } catch (Exception e) {
             logger.error("服务启动失败", e);
         }

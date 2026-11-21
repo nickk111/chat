@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.servlet.MultipartConfigElement;
+import jakarta.servlet.MultipartConfigElement;
 
 /**
  * @ClassName EasychatApplication
@@ -27,6 +27,7 @@ import javax.servlet.MultipartConfigElement;
 @EnableScheduling
 public class EasyChatApplication {
     public static void main(String[] args) {
+        System.setProperty("io.netty.noUnsafe", System.getProperty("io.netty.noUnsafe", "true"));
         SpringApplication.run(EasyChatApplication.class, args);
     }
 
