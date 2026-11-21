@@ -1,0 +1,15 @@
+# Java maven
+target/
+*.jar
+*.war
+*.original
+
+# 前端
+node_modules/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.iml
