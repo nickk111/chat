@@ -1,8 +1,8 @@
 const api = {
-    prodDomain: "http://127.0.0.1:5050",
-    devDomain: "http://127.0.0.1:5050",
-    prodWsDomain: "ws:/127.0.0.1:5051/ws",
-    devWsDomain: "ws:/127.0.0.1:5051/ws",
+    prodDomain: "http://127.0.0.1:8080",
+    devDomain: "http://127.0.0.1:8080",
+    prodWsDomain: "ws://127.0.0.1:5050/ws",
+    devWsDomain: "ws://127.0.0.1:5050/ws",
     checkCode: "/account/checkCode",//验证码
     login: "/account/login",//登录
     register: "/account/register",//注册
